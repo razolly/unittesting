@@ -1,7 +1,7 @@
 package com.example.unittesting.service;
 
-import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
+import org.mockito.ArgumentCaptor;
 import org.mockito.Mockito;
 
 import java.util.ArrayList;
@@ -46,6 +46,9 @@ public class ArrayListTest {
         verify(arr).get(0);
     }
 
+    /**
+     * Verify number of times a function was called on a mock
+     */
     @Test
     public void test_array_mocking_numberOfTimesCalled02() {
         arr.get(0);
@@ -55,6 +58,39 @@ public class ArrayListTest {
         verify(arr, times(3)).get(anyInt());
         verify(arr, atLeast(1)).get(anyInt());
         verify(arr, never()).get(5);
+    }
+
+    /**
+     * Captures arguments for functions called on a mock
+     * Simple scenario
+     */
+    @Test
+    public void argumentCaptor_simple() {
+        String valueToCapture = "Value to capture";
+        arr.add(valueToCapture);
+
+        // Verification
+        ArgumentCaptor<String> captor = ArgumentCaptor.forClass(String.class);
+        verify(arr).add(captor.capture());
+        assertThat(captor.getValue()).isEqualTo(valueToCapture);
+    }
+
+    /**
+     * Capture multiple arguments. Need to mention number of times its called
+     */
+    @Test
+    public void argumentCaptor_multipleArgs() {
+        arr.add("value0");
+        arr.add("value1");
+        arr.add("value2");
+
+        // Verification
+        ArgumentCaptor<String> captor = ArgumentCaptor.forClass(String.class);
+        // Important to state number of times so that can capture properly
+        verify(arr, times(3)).add(captor.capture());
+        assertThat(captor.getAllValues().get(0)).isEqualTo("value0");
+        assertThat(captor.getAllValues().get(1)).isEqualTo("value1");
+        assertThat(captor.getAllValues().get(2)).isEqualTo("value2");
     }
 
 }
