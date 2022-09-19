@@ -93,4 +93,41 @@ public class ArrayListTest {
         assertThat(captor.getAllValues().get(2)).isEqualTo("value2");
     }
 
+    /**
+     * Spy. Similar to mock, but retains actual behavior and allows mocking
+     *
+     * When to use?
+     *      - When you need the real behavior of a class
+     *      - When you want to observe whats happening in the class (using verify())
+     *
+     * Mock vs Spy
+     *      https://stackoverflow.com/a/39197040
+     *      https://stackoverflow.com/a/23913166
+     */
+    @Test
+    public void spying_simple() {
+        ArrayList<String> listMock = mock(ArrayList.class); // Mock
+        listMock.get(0); // Will return 0, since its a stub
+
+        ArrayList<String> listSpy = spy(ArrayList.class); // Spy
+        // listSpy.get(0); // Will throw error since no elements (like a real array list)
+
+        // Use actual arraylist behavior
+        listSpy.add("1");
+        listSpy.add("1");
+        listSpy.add("1");
+        assertThat(listSpy.size()).isEqualTo(3); // Array really has 3 objects
+        verify(listSpy, times(3)).add("1");
+
+        // Mock behavior on spy. Original behavior will be lost
+        when(listSpy.size()).thenReturn(100); // Stub. Real behavior not used any more
+        listSpy.add("1");
+        listSpy.add("123");
+        listSpy.add("123");
+        assertThat(listSpy.size()).isEqualTo(100);
+
+        // Verify behavior in class
+        verify(listSpy, times(2)).add("123");
+    }
+
 }
