@@ -26,6 +26,10 @@ public class UserService {
         return totalAge;
     }
 
+    public int addUserAgeFromArgs(int age1, int age2, int age3, int age4) {
+        return age1 + age2 + age3 + age4;
+    }
+
     public void setUserRepository(UserRepository userRepository) {
         this.userRepository = userRepository;
     }

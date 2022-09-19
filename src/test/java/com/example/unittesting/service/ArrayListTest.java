@@ -21,6 +21,12 @@ public class ArrayListTest {
         assertThat(arr.size()).isEqualTo(100);
         assertThat(arr.size()).isEqualTo(230);
         assertThat(arr.size()).isEqualTo(340);
+
+        // Another way of doing the above
+        when(arr.size()).thenReturn(1, 2, 3);
+        assertThat(arr.size()).isEqualTo(1);
+        assertThat(arr.size()).isEqualTo(2);
+        assertThat(arr.size()).isEqualTo(3);
     }
 
     @Test
