@@ -21,7 +21,7 @@ class FormFactorControllerTest {
         mockMvc.perform(MockMvcRequestBuilders.get("/form-factor")
                 .contentType(MediaType.APPLICATION_JSON))
                 .andExpect(status().isOk())
-                .andExpect(content().string("{\"id\":100,\"phoneNo\":99991111,\"userName\":\"John Doe\"}"));
+                .andExpect(content().json("{\"id\":100,\"phoneNo\":99991111,\"userName\":\"John Doe\"}"));
 
     }
 }
