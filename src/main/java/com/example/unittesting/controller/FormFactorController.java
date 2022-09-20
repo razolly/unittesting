@@ -9,6 +9,6 @@ public class FormFactorController {
 
     @GetMapping(value = "/form-factor")
     public FormFactor getFormFactor() {
-        return new FormFactor(100, 99991111);
+        return new FormFactor(100, 99991111, "John Doe");
     }
 }

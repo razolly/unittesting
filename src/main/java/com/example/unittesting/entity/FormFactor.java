@@ -10,9 +10,12 @@ public class FormFactor {
     private int id;
     private int phoneNo;
 
-    public FormFactor(int id, int phoneNo) {
+    private String userName;
+
+    public FormFactor(int id, int phoneNo, String userName) {
         this.id = id;
         this.phoneNo = phoneNo;
+        this.userName = userName;
     }
 
     public int getId() {
@@ -21,6 +24,10 @@ public class FormFactor {
 
     public int getPhoneNo() {
         return phoneNo;
+    }
+
+    public String getUserName() {
+        return userName;
     }
 
     @Override
