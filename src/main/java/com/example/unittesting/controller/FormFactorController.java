@@ -19,7 +19,7 @@ public class FormFactorController {
         return new FormFactor(100, 99991111, "John Doe");
     }
 
-    @GetMapping(value = "/form-factor-from-service")
+    @GetMapping(value = "/form-factor-from-service-hardcoded")
     public List<FormFactor> getFormFactorFromServiceHardCoded() {
         return formFactorServiceHardCoded.getAllHardCodedFormFactors();
     }
