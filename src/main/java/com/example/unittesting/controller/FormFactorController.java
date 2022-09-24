@@ -1,7 +1,7 @@
 package com.example.unittesting.controller;
 
 import com.example.unittesting.entity.FormFactor;
-import com.example.unittesting.service.FormFactorService;
+import com.example.unittesting.service.FormFactorServiceHardCoded;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -12,7 +12,7 @@ import java.util.List;
 public class FormFactorController {
 
     @Autowired
-    private FormFactorService formFactorService;
+    private FormFactorServiceHardCoded formFactorServiceHardCoded;
 
     @GetMapping(value = "/form-factor")
     public FormFactor getFormFactor() {
@@ -21,6 +21,6 @@ public class FormFactorController {
 
     @GetMapping(value = "/form-factor-from-service")
     public List<FormFactor> getFormFactorFromServiceHardCoded() {
-        return formFactorService.getAllHardCodedFormFactors();
+        return formFactorServiceHardCoded.getAllHardCodedFormFactors();
     }
 }

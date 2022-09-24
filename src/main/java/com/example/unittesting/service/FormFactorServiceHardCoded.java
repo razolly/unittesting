@@ -7,7 +7,7 @@ import java.util.Arrays;
 import java.util.List;
 
 @Component
-public class FormFactorService {
+public class FormFactorServiceHardCoded {
 
     public List<FormFactor> getAllHardCodedFormFactors() {
         return Arrays.asList(new FormFactor(1, 12341234, "John Doe"),

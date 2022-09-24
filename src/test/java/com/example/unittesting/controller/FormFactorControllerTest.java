@@ -1,7 +1,7 @@
 package com.example.unittesting.controller;
 
 import com.example.unittesting.entity.FormFactor;
-import com.example.unittesting.service.FormFactorService;
+import com.example.unittesting.service.FormFactorServiceHardCoded;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
@@ -23,7 +23,7 @@ class FormFactorControllerTest {
     private MockMvc mockMvc;
 
     @MockBean
-    private FormFactorService formFactorService;
+    private FormFactorServiceHardCoded formFactorServiceHardCoded;
 
     @Test
     void getFormFactor_simple() throws Exception {
@@ -39,7 +39,7 @@ class FormFactorControllerTest {
      */
     @Test
     void getFormFactorFromServiceHardCoded_simple() throws Exception {
-        when(formFactorService.getAllHardCodedFormFactors()).thenReturn(
+        when(formFactorServiceHardCoded.getAllHardCodedFormFactors()).thenReturn(
                 Arrays.asList(new FormFactor(100, 11111111, "User1"),
                         new FormFactor(200, 22222222, "User2"))
         );
