@@ -3,10 +3,15 @@ package com.example.unittesting.entity;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import javax.persistence.Entity;
+import javax.persistence.Id;
+
+@Entity
 @Data
 @NoArgsConstructor
 public class FormFactor {
 
+    @Id
     private int id;
     private int phoneNo;
     private String userName;
