@@ -9,7 +9,6 @@ public class FormFactor {
 
     private int id;
     private int phoneNo;
-
     private String userName;
 
     public FormFactor(int id, int phoneNo, String userName) {
