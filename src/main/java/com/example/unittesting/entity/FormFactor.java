@@ -16,6 +16,9 @@ public class FormFactor {
     private int phoneNo;
     private String userName;
 
+    public FormFactor() {
+    }
+
     public FormFactor(int id, int phoneNo, String userName) {
         this.id = id;
         this.phoneNo = phoneNo;

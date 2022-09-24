@@ -1,6 +1,7 @@
 package com.example.unittesting.controller;
 
 import com.example.unittesting.entity.FormFactor;
+import com.example.unittesting.service.FormFactorService;
 import com.example.unittesting.service.FormFactorServiceHardCoded;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,6 +25,9 @@ class FormFactorControllerTest {
 
     @MockBean
     private FormFactorServiceHardCoded formFactorServiceHardCoded;
+
+    @MockBean
+    private FormFactorService formFactorService;
 
     @Test
     void getFormFactor_simple() throws Exception {
