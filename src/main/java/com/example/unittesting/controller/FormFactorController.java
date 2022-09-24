@@ -32,4 +32,9 @@ public class FormFactorController {
     public List<FormFactor> getFormFactorFromService() {
         return formFactorService.getAllFormFactors();
     }
+
+    @GetMapping(value = "/form-factor-from-service-processed")
+    public List<FormFactor> getFormFactorFromServiceProcessed() {
+        return formFactorService.getAllFormFactorsWithProcessing();
+    }
 }

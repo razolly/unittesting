@@ -1,20 +1,21 @@
 package com.example.unittesting.entity;
 
 import lombok.Data;
-import lombok.NoArgsConstructor;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.Transient;
 
 @Entity
-@Data
-@NoArgsConstructor
 public class FormFactor {
 
     @Id
     private int id;
     private int phoneNo;
     private String userName;
+
+    @Transient
+    private String details;
 
     public FormFactor() {
     }
@@ -35,6 +36,14 @@ public class FormFactor {
 
     public String getUserName() {
         return userName;
+    }
+
+    public String getDetails() {
+        return details;
+    }
+
+    public void setDetails(String details) {
+        this.details = details;
     }
 
     @Override

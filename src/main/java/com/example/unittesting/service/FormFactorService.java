@@ -16,4 +16,14 @@ public class FormFactorService {
     public List<FormFactor> getAllFormFactors() {
         return formFactorRepository.findAll();
     }
+
+    public List<FormFactor> getAllFormFactorsWithProcessing() {
+        List<FormFactor> allFormFactors = formFactorRepository.findAll();
+        for (FormFactor ff : allFormFactors) {
+            ff.setDetails(ff.getId() + ", "
+                    + ff.getPhoneNo() + ", "
+                    + ff.getUserName());
+        }
+        return allFormFactors;
+    }
 }
